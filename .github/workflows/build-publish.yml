@@ -37,15 +37,14 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/nginx-proxy/nginx-proxy
-            nginxproxy/nginx-proxy
-            jwilder/nginx-proxy
+            ghcr.io/rhansen/nginx-proxy
+            rhansen0/nginx-proxy
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=raw,value=latest,enable={{is_default_branch}}
           labels: |
-            org.opencontainers.image.authors=Nicolas Duchon <nicolas.duchon@gmail.com> (@buchdag), Jason Wilder
+            org.opencontainers.image.authors=Richard Hansen <rhansen@rhansen.org>, Nicolas Duchon <nicolas.duchon@gmail.com> (@buchdag), Jason Wilder
             org.opencontainers.image.version=${{ steps.nginx-proxy_version.outputs.VERSION }}
 
       - name: Set up QEMU
@@ -106,15 +105,14 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/nginx-proxy/nginx-proxy
-            nginxproxy/nginx-proxy
-            jwilder/nginx-proxy
+            ghcr.io/rhansen/nginx-proxy
+            rhansen0/nginx-proxy
           tags: |
             type=semver,suffix=-alpine,pattern={{version}}
             type=semver,suffix=-alpine,pattern={{major}}.{{minor}}
             type=raw,value=alpine,enable={{is_default_branch}}
           labels: |
-            org.opencontainers.image.authors=Nicolas Duchon <nicolas.duchon@gmail.com> (@buchdag), Jason Wilder
+            org.opencontainers.image.authors=Richard Hansen <rhansen@rhansen.org>, Nicolas Duchon <nicolas.duchon@gmail.com> (@buchdag), Jason Wilder
             org.opencontainers.image.version=${{ steps.nginx-proxy_version.outputs.VERSION }}
           flavor: latest=false
 
